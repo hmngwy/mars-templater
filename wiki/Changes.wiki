@@ -1,13 +1,12 @@
 ===@ 0.1.3===
-Added a conditional tag feature, {con:var}{/con:var}.
-
-Removed setvars and setloops temporarily, it made no sense to be there.
+* Added a conditional tag feature, {con:var}{/con:var}.
+* Removed setvars and setloops temporarily, it made no sense to be there.
 
 ===@ 0.1.2===
-Made render() handle empty arrays of vars and loops.
+* Made render() handle empty arrays of vars and loops.
 
 ===@ 0.1.1===
-Cleaned some bugs.
+* Cleaned some bugs.
 
 ===@ 0.1===
 RELEASED. oh yeah.
