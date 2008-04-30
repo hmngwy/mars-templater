@@ -50,7 +50,7 @@ echo $file->render();
 	<li>nobody loves pink</li>
 </ul>
 
-show pat
+<p>show pat</p>
 
 </body>
 }}}
