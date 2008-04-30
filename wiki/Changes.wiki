@@ -1,5 +1,5 @@
 ===@ 0.1.3===
-  * Added a conditional tag feature, {con:var}{/con:var}.
+  * Added a conditional tag feature, {con:var}conditional phrase{/con:var}. _[http://code.google.com/p/mars-templater/wiki/Demo see demo]_
   * Removed setvars and setloops temporarily, it made no sense to be there.
 
 ===@ 0.1.2===
@@ -9,4 +9,4 @@
   * Cleaned some bugs.
 
 ===@ 0.1===
-RELEASED. oh yeah.
+  * RELEASED. oh yeah.
