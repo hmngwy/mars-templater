@@ -1,0 +1,56 @@
+_All features are shown below._
+
+==Template File== 
+{{{
+<body>
+
+<p>{developername} - {about}</p>
+
+<ul>
+{loop:people}
+	<li>{name} loves {color}</li>
+{/loop:people}
+</ul>
+
+{con:con1}<p>show {nick}</p>{/con:con1}
+{con:con2}<p>don't show {nick}</p>{/con:con2}
+
+</body>
+}}}
+
+==PHP Script==
+{{{
+$file = new templater('test.tpl');
+$file->addvar('developername', 'conrado patricio ambrosio');
+$file->addvar('about', 'i\'m a php programmer, cool.');
+$file->addvar('nick', 'pat');
+
+$people = array(array('name' => 'kina', 'color' => 'purple'), 
+		array('name' => 'pat', 'color' => 'blue'),
+		array('name' => 'nobody', 'color' => 'pink')
+		);
+
+$file->addloop('people', $people);
+
+$file->addcon('con1', true);
+$file->addcon('con2', false);
+
+echo $file->render();
+}}}
+
+==OUTPUT== 
+{{{
+<body>
+
+<p>conrado patricio ambrosio - i'm a php programmer, cool.</p>
+
+<ul>
+	<li>kina loves purple</li>
+	<li>pat loves blue</li>
+	<li>nobody loves pink</li>
+</ul>
+
+show pat
+
+</body>
+}}}
