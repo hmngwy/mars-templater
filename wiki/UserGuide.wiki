@@ -1,0 +1,95 @@
+=User Guide=
+as of 0.1.3
+
+==Creating==
+The Class name is 'templater', without the single quotes. So we create an instance of the class with the template file 'home.tpl.html' like so:
+{{{
+$file = new templater('home.tpl.html');
+}}}
+The variable $file is now an instance of Class templater with template file 'home.tpl.html'
+'home.tpl.html' is a markup file, you can actually use any plain/text file with any file extension, _'.tpl.ext'_ is just my own naming convention.
+
+==Variables==
+Variables are singular data, it cannot be arrays or objects.
+
+*PHP Script*
+{{{
+$developername = 'pat ambrosio';
+$file->addvar('name', $developername);
+}}}
+*Template*
+{{{
+<div id="name">
+{name}
+</div>
+}}}
+
+*Output*
+{{{
+<div id="name">
+pat ambrosio
+</div>
+}}}
+==Loops==
+Loops are row data, structured such that it is an array of associative arrays.
+
+*PHP Script*
+{{{
+$people = array(array('name' => 'kina', 'color' => 'purple'), 
+                array('name' => 'pat', 'color' => 'blue'),
+                array('name' => 'nobody', 'color' => 'pink')
+                );
+
+$file->addloop('people', $people);
+}}}
+
+*Template*
+{{{
+<ul>
+{loop:people}
+        <li>{name} loves {color}</li>
+{/loop:people}
+</ul>
+}}}
+
+*Output*
+{{{
+<ul>
+        <li>kina loves purple</li>
+        <li>pat loves blue</li>
+        <li>nobody loves pink</li>
+</ul>
+}}}
+
+==Conditionals==
+Conditionals are blocks that are displayed or removed if the variable is true or false respectively. Conditionals can contain Variables or Loops.
+
+*PHP Script*
+{{{
+$file->addvar('nick', 'pat');
+$file->addcon('con1', true);
+$file->addcon('con2', false);
+}}}
+
+*Template*
+{{{
+<div id="cons">
+{con:con1}<p>show {nick}</p>{/con:con1}
+{con:con2}<p>don't show {nick}</p>{/con:con2}
+</div>
+}}}
+
+*Output*
+{{{
+<div id="cons">
+<p>show pat</p>
+</div>
+}}}
+
+==Output==
+Output is always echoed, since the method returns a string. Output is rendered by calling the method render() like so:
+
+*PHP Script*
+{{{
+echo $file->render();
+}}}
