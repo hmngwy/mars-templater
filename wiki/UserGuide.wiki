@@ -33,11 +33,8 @@ pat ambrosio
 
 ----
 =Loops= 
-Loops are row data, structured such that it is an array of associative arrays.
-
+Loops are row data, structured such that it is an array of associative arrays. 
 The indices of the associative arrays are the tags within the loop tags.
-
-To specify a loop in the template file we use this convention, {loop:people}.
 
 *PHP Script*
 {{{
