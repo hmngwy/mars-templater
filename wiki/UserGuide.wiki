@@ -1,6 +1,6 @@
 _as of 0.1.3_
 
-=Creating= 
+=Creation= 
 The Class name is 'templater', without the single quotes. So we create an instance of the class with the template file 'home.tpl.html' like so:
 {{{
 $file = new templater('home.tpl.html');
