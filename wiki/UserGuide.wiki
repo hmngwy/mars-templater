@@ -5,8 +5,7 @@ The Class name is 'templater', without the single quotes. So we create an instan
 {{{
 $file = new templater('home.tpl.html');
 }}}
-The variable $file is now an instance of Class templater with template file 'home.tpl.html'
-'home.tpl.html' is a markup file, you can actually use any plain/text file with any file extension, _'.tpl.ext'_ is just my own naming convention.
+The variable $file is now an instance of Class templater with template file 'home.tpl.html', it is a markup file, you can actually use any plain/text file with any file extension, _'.tpl.ext'_ is just my own naming convention.
 
 ----
 =Variables= 
