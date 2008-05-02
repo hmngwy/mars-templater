@@ -1,11 +1,3 @@
-Version Convention
-
-Release.Subversion.Feature.Structure [i.e. 0.0.0.0]
-  * When Release increments, new Release.
-  * When Subversion increments, changes in feature and structure.
-  * When Feature increments, changes in features.
-  * When Structure increments, changes in program structure.
-
 ===@ 0.1.3===
   * Added a conditional tag feature, {con:var}conditional phrase{/con:var}. _[http://code.google.com/p/mars-templater/wiki/Demo see demo]_
   * Removed setvars and setloops temporarily, it made no sense to be there.
