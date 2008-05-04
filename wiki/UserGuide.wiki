@@ -12,6 +12,7 @@ You can also instantiate without a template file, if you wish to use a string in
 $file = new templater();
 $file->setfilestring('<p>{name}</p>');
 }}}
+Warning: `setfilestring` method overwrites the current filestring. A filestring is also set when a template file is defined.
 ----
 =Variables= 
 Variables are singular data, it cannot be arrays or objects.
