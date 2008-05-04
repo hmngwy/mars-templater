@@ -1,6 +1,4 @@
-_Full Documentaion for Class templater as of version 0.2.1_
-
-_This page is also a typographical horror._
+_Full Documentaion for Class templater as of version 0.2.1, and typographical horror._
 ----
 = =
 =ATTRIBUTES=
