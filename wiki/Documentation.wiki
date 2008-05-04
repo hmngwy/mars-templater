@@ -1,4 +1,3 @@
-----
 _Full Documentaion for Class templater as of version 0.2.1_
 ----
 = =
