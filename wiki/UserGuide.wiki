@@ -1,4 +1,4 @@
-_as of 0.1.3_
+_as of 0.2.1_
 
 =Creation= 
 The Class name is 'templater', without the single quotes. So we create an instance of the class with the template file 'home.tpl.html' like so:
@@ -7,6 +7,11 @@ $file = new templater('home.tpl.html');
 }}}
 The variable $file is now an instance of Class templater with template file 'home.tpl.html', it is a markup file, you can actually use any plain/text file with any file extension, _'.tpl.ext'_ is just my own naming convention.
 
+You can also instantiate without a template file, if you wish to use a string instead of reading from a template file. Like this:
+{{{
+$file = new templater();
+$file->setfilestring('<p>{name}</p>');
+}}}
 ----
 =Variables= 
 Variables are singular data, it cannot be arrays or objects.
