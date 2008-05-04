@@ -2,6 +2,7 @@
   * You can now set a string instead of reading from a template file. a `setfilestring` method is now available. _[UserGuide see user guide for more info]_
   * an alias for constructor is now available as `setfile()`
   * you can now instantiate without a parameter (`$page = new templater()`)
+  * yes, i know that it has only been 3+ hours since release 0.2
 
 ===@ 0.2===
   * More encapsulation, yey!
