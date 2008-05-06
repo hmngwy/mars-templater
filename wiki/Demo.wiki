@@ -54,3 +54,5 @@ echo $file->render();
 
 </body>
 }}}
+
+For an in-depth syntax guide see [UserGuide user guide]. If you're hardcore, see [Documentation full documentation]
