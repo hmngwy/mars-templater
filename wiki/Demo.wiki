@@ -1,5 +1,7 @@
 For an in-depth syntax guide see [UserGuide user guide]. If you're hardcore, see [Documentation full documentation].
 
+You can actually copy-paste this to try it, make sure you `include` the templater class early in your PHP script.
+
 ==Template File== 
 `in test.tpl`
 
