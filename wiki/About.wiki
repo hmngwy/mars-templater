@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+The ultimate purpose of this class is to separate program logic (or domain logic) from your markup. Notice how there is no binary operators in the [UserGuide syntax] (markup).
+
+I purposefully avoided tags like {if $var==1}hi{/if} and {loop til 20} {/loop} because these are still domain logic and would mix up with your markup, and why would you need this if you can use exact PHP equivalents of such statements <?php if($var==1...
+
+So you have three tags, all that you need:
+  * {var} for single data
+  * {con:good} {/con:good} for conditional data
+  * {loop:repeat} {/loop:repeat} for row/table data
+
+See [UserGuide user guide for more info].
