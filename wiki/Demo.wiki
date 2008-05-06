@@ -1,4 +1,6 @@
 ==Template File== 
+`in test.tpl`
+
 {{{
 <body>
 
