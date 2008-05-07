@@ -29,5 +29,4 @@ See [UserGuide user guide for more info].
 ===Usage suggestion===
 No template engine is fast enough, you would want to cache some pages, that goes for all template engines.
 
-======
 This is actually good for CMSs, if you want a user to be able to control markup but not logic, or if you just want to keep your hands clean while designing.
