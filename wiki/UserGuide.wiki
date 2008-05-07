@@ -104,3 +104,19 @@ Output is always echoed, since the method returns a string. Output is rendered b
 {{{
 echo $file->render();
 }}}
+
+----
+=Tricks=
+===include and block===
+I did not include an `include` and `block` function, because you can already do this using the available functions, see:
+
+{{{
+$main = new templater('main.tpl.html');
+$main->addvar('nick', 'pat');
+
+$footer = new templater('foot.tpl.html');
+$footer->addvar('c', 'mars (c) 2008');
+
+$main->addvar('footr', $footer->render());
+echo $main->render();
+}}}
