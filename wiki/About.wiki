@@ -7,6 +7,7 @@ I religiously avoided tags like `{if $var==1}hi{/if}` and `{loop til 20} {/loop}
 
 I also avoided the include and block function that every other template engine have, because you can already achieve such functionality using the already available features of the class. See [UserGuide user guide] for an example of including.
 
+I did not include the ability to _define functions_ as a feature because it is just plain stupid. Someday I might strike this line through, but I doubt it.
 
 ===Syntax Summary===
 So you have three tags, all that you need:
