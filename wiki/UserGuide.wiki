@@ -120,3 +120,11 @@ $footer->addvar('c', 'mars (c) 2008');
 $main->addvar('footr', $footer->render());
 echo $main->render();
 }}}
+
+===Chuck Norris===
+You can execute a roundhouse kick by calling `roundhouse` method like so, the parameter is always the target:
+
+{{{
+$file = new templater();
+$file->roundhouse('little-brother');
+}}}
