@@ -5,17 +5,7 @@ The ultimate purpose of this class is to separate program logic (or domain logic
 ===Principle===
 I religiously avoided tags like `{if $var==1}hi{/if}` and `{loop til 20} {/loop}` because these are still domain logic and would mix up with your markup, and why would you need this if you can use exact PHP equivalents of such statements `<?php if($var==1...`
 
-I also avoided the include and block function that every other template engine have, because you can already achieve such functionality using the already available features of the class. See:
-
-{{{
-$main = new templater('main.tpl.html');
-$main->addvar('nick', 'pat');
-
-$footer = new templater('foot.tpl.html');
-$footer->addvar('c', 'mars (c) 2008');
-
-$main->addvar('footr', $footer->render());
-}}}
+I also avoided the include and block function that every other template engine have, because you can already achieve such functionality using the already available features of the class. See [UserGuide user guide] for an example of including.
 
 
 ===Syntax Summary===
@@ -24,7 +14,7 @@ So you have three tags, all that you need:
   * `{con:good} {/con:good}` for conditional data
   * `{loop:repeat} {/loop:repeat}` for row/table data
 
-See [UserGuide user guide for more info].
+See [UserGuide user guide] for more info.
 
 ===Usage suggestion===
 No template engine is fast enough, you would want to cache some pages, that goes for all template engines.
