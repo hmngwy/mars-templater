@@ -1,4 +1,3 @@
-#labels Featured
 _as of 0.2.1_
 
 =Creation= 
@@ -14,6 +13,8 @@ $file = new templater();
 $file->setfilestring('<p>{name}</p>');
 }}}
 Warning: `setfilestring` method overwrites the current filestring. A filestring is also set when a template file is defined.
+.
+.
 ----
 =Variables= 
 Variables are singular data, it cannot be arrays or objects.
@@ -36,7 +37,8 @@ $file->addvar('name', $developername);
 pat ambrosio
 </div>
 }}}
-
+.
+.
 ----
 =Loops= 
 Loops are row data, structured such that it is an array of associative arrays. 
@@ -69,7 +71,8 @@ $file->addloop('people', $people);
         <li>nobody loves pink</li>
 </ul>
 }}}
-
+.
+.
 ----
 =Conditionals= 
 Conditionals are blocks that are displayed or removed if the variable is true or false respectively. Conditionals can contain Variables or Loops.
@@ -95,7 +98,8 @@ $file->addcon('con2', false);
 <p>show pat</p>
 </div>
 }}}
-
+.
+.
 ----
 =Output= 
 Output is always echoed, since the method returns a string. Output is rendered by calling the method render() like so:
@@ -105,10 +109,38 @@ Output is always echoed, since the method returns a string. Output is rendered b
 echo $file->render();
 }}}
 
+===Rules===
+The rules are the steps that the rendering process follows, it is the only parameter of the render method, it is a string. The rule language only accepts the following words:
+  * parse
+  * remove
+  * vars
+  * cons
+  * loops
+  * all
+
+A valid rule will look like this:
+{{{
+echo $file->render('parse vars cons remove loops');
+}}}
+This will parse all var and con tags and then remove all loops in the same sequence you have written it, this can also be like:
+{{{
+echo $file->render('parse vars parse cons remove loops');
+// or
+echo $file->render('vars parse cons remove loops');
+}}}
+Not writing `parse` or `remove` as a first word will evaluate to `parse` as the first word.
+
+The default rule is:
+{{{
+  'parse all remove all'
+}}}
+The keyword `all` always evaluates as `cons vars loops`, this sequence for parsing is most suggested (removing, doesn't matter), other sequences may result in error, therefore the example above the default rule is stupid.
+.
+.
 ----
 =Tricks=
 ===include and block===
-I did not include an `include` and `block` function, because you can already do this using the available functions, see:
+I did not include an `include` and `block` function, but you can do include using the available functionalities, see:
 
 {{{
 $main = new templater('main.tpl.html');
@@ -121,6 +153,8 @@ $main->addvar('footr', $footer->render());
 echo $main->render();
 }}}
 
+The block feature is stupid, it mixes logic with markup, i purposefully excluded it.
+
 ===Chuck Norris===
 You can execute a roundhouse kick by calling `roundhouse` method like so, the parameter is always the target:
 
@@ -128,3 +162,5 @@ You can execute a roundhouse kick by calling `roundhouse` method like so, the pa
 $file = new templater();
 $file->roundhouse('little-brother');
 }}}
+.
+.
