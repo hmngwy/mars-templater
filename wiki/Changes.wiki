@@ -1,7 +1,7 @@
 ===@ 0.2.2===
   * corrected parsecons, it was accepting empty and true both as true values.
   * added a remove feature for undefined tags.
-  * rendering files now has rules, see [UserGuide user guide] soon for more info.
+  * rendering files now has rules, see [UserGuide user guide] for more info.
 
 ===@ 0.2.1===
   * You can now set a string instead of reading from a template file. a `setfilestring` method is now available. _[UserGuide see user guide for more info]_
