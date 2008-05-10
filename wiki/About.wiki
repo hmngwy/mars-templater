@@ -1,15 +1,17 @@
 #labels Featured
+_as of 0.2.3_
+
 ===Purpose===
-The ultimate purpose of this class is to separate program logic (or domain logic) from your markup. Notice how there is no binary operators in the [UserGuide syntax] (markup).
+The ultimate purpose of this class is to separate program logic (or domain logic) and data definition from your markup. Notice how there is no binary operators in the [UserGuide syntax] (markup).
 
 ===Principle===
 I religiously avoided tags like `{if $var==1}hi{/if}` and `{loop til 20} {/loop}` because these are still domain logic and would mix up with your markup, and why would you need this if you can use exact PHP equivalents of such statements `<?php if($var==1...`
 
-I also avoided the include and block function that every other template engine have, because you can already achieve such functionality using the already available features of the class. See [UserGuide user guide] for an example of including.
+I also avoided the include and block function/tags that every other template engine have, though including can be achieved using th already available functionalities, see [UserGuide user guide] for an example of including. Whilst the block feature is stupid, it mixes variable definition with markup, i purposefully excluded it.
 
-I did not include the ability to _define functions_ as a feature because it is just plain stupid. Someday I might strike this line through, but I doubt it.
+I did not include the ability to _define functions_ as a feature because it is just plain silly. Someday I might strike this line through, but I doubt it.
 
-===Syntax Summary===
+===Templating Syntax Summary===
 So you have three tags, all that you need:
   * `{var}` for single data
   * `{con:good} {/con:good}` for conditional data
