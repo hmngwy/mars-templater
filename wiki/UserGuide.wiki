@@ -1,5 +1,5 @@
 #labels Featured
-_as of 0.2.2_
+_as of 0.2.3_
 
 =Creation= 
 The Class name is 'templater', without the single quotes. So we create an instance of the class with the template file 'home.tpl.html' like so:
@@ -14,8 +14,10 @@ $file = new templater();
 $file->setfilestring('<p>{name}</p>');
 }}}
 Warning: `setfilestring` method overwrites the current filestring. A filestring is also set when a template file is defined.
+
 .
-.
+
+
 ----
 =Variables= 
 Variables are singular data, it cannot be arrays or objects.
@@ -38,8 +40,10 @@ $file->addvar('name', $developername);
 pat ambrosio
 </div>
 }}}
+
 .
-.
+
+
 ----
 =Loops= 
 Loops are row data, structured such that it is an array of associative arrays. 
@@ -72,8 +76,10 @@ $file->addloop('people', $people);
         <li>nobody loves pink</li>
 </ul>
 }}}
+
 .
-.
+
+
 ----
 =Conditionals= 
 Conditionals are blocks that are displayed or removed if the variable is true or false respectively. Conditionals can contain Variables or Loops.
@@ -99,8 +105,10 @@ $file->addcon('con2', false);
 <p>show pat</p>
 </div>
 }}}
+
 .
-.
+
+
 ----
 =Output= 
 Output is always echoed, since the method returns a string. Output is rendered by calling the method render() like so:
@@ -118,6 +126,7 @@ The rules are the steps that the rendering process follows, it is the only param
   * cons
   * loops
   * all
+  * none
 
 A valid rule looks like this:
 {{{
@@ -140,7 +149,8 @@ The default evaluates when you don't place a rule when calling the `render()` me
 The keyword `all` always evaluates as `cons vars loops`, this sequence for parsing is most suggested (removing, doesn't matter), other sequences may result in error, therefore the example above the default rule is stupid.
 
 .
-.
+
+
 ----
 =Tricks=
 ===include and block===
@@ -166,5 +176,5 @@ You can execute a roundhouse kick by calling `roundhouse` method like so, the pa
 $file = new templater();
 $file->roundhouse('little-brother');
 }}}
-.
+
 .
