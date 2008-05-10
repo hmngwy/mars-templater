@@ -19,9 +19,8 @@ You can also set a later file by using `setfile` method.
 $file = new templater();
 $file->setfile('late.tpl.html');
 }}}
-
-
 Warning: `setfilestring` and `setfile` method overwrites the current filestring. 
+
 .
 
 
