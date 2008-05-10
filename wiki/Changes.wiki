@@ -1,3 +1,7 @@
+===@ 0.2.3===
+  * corrected default render rule to `parse all remove all`.
+  * added a none keyword to the render rules.
+
 ===@ 0.2.2===
   * corrected parsecons, it was accepting empty and true both as true values.
   * added a remove feature for undefined tags.
