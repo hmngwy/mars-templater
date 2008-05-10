@@ -118,7 +118,7 @@ Output is always echoed, since the method returns a string. Output is rendered b
 echo $file->render();
 }}}
 
-===Rules===
+===Render Rules===
 The rules are the steps that the rendering process follows, it is the only parameter of the render method, it is a string. The rule language only accepts the following words:
   * parse
   * remove
