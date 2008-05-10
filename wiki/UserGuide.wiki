@@ -173,7 +173,8 @@ $main->addvar('footr', $footer->render());
 echo $main->render();
 }}}
 
-The block feature is stupid, it mixes variable definition with markup, i purposefully excluded it.
+You can set a convention for your include tags like {inc:me}, but the engine would recognize it no more than a single variable.
+
 
 ===Chuck Norris===
 You can execute a roundhouse kick by calling `roundhouse` method like so, the parameter is always the target:
