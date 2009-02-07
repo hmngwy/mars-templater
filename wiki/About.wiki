@@ -1,5 +1,5 @@
 #labels Featured
-_as of 0.2.3_
+_as of 0.2.6_
 
 ===Purpose===
 The ultimate purpose of this class is to separate program logic (or domain logic) and data definition from your markup. Notice how there is no binary operators in the [UserGuide syntax] (markup).
