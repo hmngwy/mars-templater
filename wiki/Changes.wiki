@@ -1,3 +1,6 @@
+===@ 0.2.6===
+  * fixed a bug wherein the templater removes most of your inline css and javascript.
+
 ===@ 0.2.3===
   * corrected default render rule to `parse all remove all`.
   * added a none keyword to the render rules.
