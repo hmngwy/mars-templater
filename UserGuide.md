@@ -1,0 +1,196 @@
+_as of 0.2.6_
+
+# Creation #
+The Class name is 'templater', without the single quotes. So we create an instance of the class with the template file 'home.tpl.html' like so:
+```
+$file = new templater('home.tpl.html');
+```
+The variable $file is now an instance of Class templater with template file 'home.tpl.html', it is a markup file, you can actually use any plain/text file with any file extension, _'.tpl.ext'_ is just my own naming convention.
+
+You can also instantiate without a template file, if you wish to use a string instead of reading from a template file. Like this:
+```
+$file = new templater();
+$file->setfilestring('<p>{name}</p>');
+```
+
+You can also set a later file by using `setfile` method.
+```
+$file = new templater();
+$file->setfile('late.tpl.html');
+```
+Warning: `setfilestring` and `setfile` method overwrites the current filestring.
+
+.
+
+
+
+---
+
+# Variables #
+Variables are singular data, it cannot be arrays or objects.
+
+**PHP Script**
+```
+$developername = 'pat ambrosio';
+$file->addvar('name', $developername);
+```
+**Template**
+```
+<div id="name">
+{name}
+</div>
+```
+
+**Output**
+```
+<div id="name">
+pat ambrosio
+</div>
+```
+
+.
+
+
+
+---
+
+# Loops #
+Loops are row data, structured such that it is an array of associative arrays.
+The indices of the associative arrays are the tags within the loop tags.
+
+**PHP Script**
+```
+$people = array(array('name' => 'kina', 'color' => 'purple'), 
+                array('name' => 'pat', 'color' => 'blue'),
+                array('name' => 'nobody', 'color' => 'pink')
+                );
+
+$file->addloop('people', $people);
+```
+
+**Template**
+```
+<ul>
+{loop:people}
+        <li>{name} loves {color}</li>
+{/loop:people}
+</ul>
+```
+
+**Output**
+```
+<ul>
+        <li>kina loves purple</li>
+        <li>pat loves blue</li>
+        <li>nobody loves pink</li>
+</ul>
+```
+
+.
+
+
+
+---
+
+# Conditionals #
+Conditionals are blocks that are displayed or removed if the variable is true or false respectively. Conditionals can contain Variables or Loops.
+
+**PHP Script**
+```
+$file->addvar('nick', 'pat');
+$file->addcon('con1', true);
+$file->addcon('con2', false);
+```
+
+**Template**
+```
+<div id="cons">
+{con:con1}<p>show {nick}</p>{/con:con1}
+{con:con2}<p>don't show {nick}</p>{/con:con2}
+</div>
+```
+
+**Output**
+```
+<div id="cons">
+<p>show pat</p>
+</div>
+```
+
+.
+
+
+
+---
+
+# Output #
+Output is always echoed, since the method returns a string. Output is rendered by calling the method render() like so:
+
+**PHP Script**
+```
+echo $file->render();
+```
+
+### Render Rules ###
+The rules are the steps that the rendering process follows, it is the only parameter of the render method, it is a string. The rule language only accepts the following words:
+  * parse
+  * remove
+  * vars
+  * cons
+  * loops
+  * all
+  * none
+
+A valid rule looks like this:
+```
+echo $file->render('parse vars cons remove loops');
+```
+This will parse all var and con tags and then remove all loops in the same sequence you have written it, this can also be like:
+```
+echo $file->render('parse vars parse cons remove loops');
+// or
+echo $file->render('vars parse cons remove loops');
+```
+Not writing `parse` or `remove` as a first word will evaluate to `parse` as the first word.
+
+The default rule is:
+```
+  'parse all remove all'
+```
+The default evaluates when you don't place a rule when calling the `render()` method.
+
+The keyword `all` always evaluates as `cons vars loops`, this sequence for parsing is most suggested (removing, doesn't matter), other sequences may result in error, therefore the example above the default rule is stupid.
+
+.
+
+
+
+---
+
+# Tricks #
+### include and block ###
+I did not include an `include` and `block` function, but you can do include using the available functionalities, see:
+
+```
+$main = new templater('main.tpl.html');
+$main->addvar('nick', 'pat');
+
+$footer = new templater('foot.tpl.html');
+$footer->addvar('c', 'mars (c) 2008');
+
+$main->addvar('footr', $footer->render());
+echo $main->render();
+```
+
+You can set a convention for your include tags like {inc:me}, but the engine would recognize it no more than a single variable.
+
+
+### Chuck Norris ###
+You can execute a roundhouse kick by calling `roundhouse` method like so, the parameter is always the target:
+
+```
+$file = new templater();
+$file->roundhouse('little-brother');
+```
+
+.

@@ -1,0 +1,24 @@
+_as of 0.2.6_
+
+### Purpose ###
+The ultimate purpose of this class is to separate program logic (or domain logic) and data definition from your markup. Notice how there is no binary operators in the [syntax](UserGuide.md) (markup).
+
+### Principle ###
+I religiously avoided tags like `{if $var==1}hi{/if}` and `{loop til 20} {/loop}` because these are still domain logic and would mix up with your markup, and why would you need this if you can use exact PHP equivalents of such statements `<?php if($var==1...`
+
+I also avoided the include and block function/tags that every other template engine have, though including can be achieved using th already available functionalities, see [user guide](UserGuide.md) for an example of including. Whilst the block feature is stupid, it mixes variable definition with markup, i purposefully excluded it.
+
+I did not include the ability to _define functions_ as a feature because it is just plain silly. Someday I might strike this line through, but I doubt it.
+
+### Templating Syntax Summary ###
+So you have three tags, all that you need:
+  * `{var}` for single data
+  * `{con:good} {/con:good}` for conditional data
+  * `{loop:repeat} {/loop:repeat}` for row/table data
+
+See [user guide](UserGuide.md) for more info.
+
+### Usage suggestion ###
+No template engine is fast enough, you would want to cache some pages, that goes for all template engines.
+
+This is actually good for CMSs, if you want a user to be able to control markup but not logic, or if you just want to keep your hands clean while designing, or if you're just like me who feels cool while using a very very very minimalistic template engine.

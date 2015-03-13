@@ -1,0 +1,60 @@
+For an in-depth syntax guide see [user guide](UserGuide.md). If you're hardcore, see [full documentation](Documentation.md).
+
+You can actually copy-paste this to try it, make sure you `include` the templater class early in your PHP script.
+
+## Template File ##
+`in test.tpl`
+
+```
+<body>
+
+<p>{developername} - {about}</p>
+
+<ul>
+{loop:people}
+	<li>{name} loves {color}</li>
+{/loop:people}
+</ul>
+
+{con:con1}<p>show {nick}</p>{/con:con1}
+{con:con2}<p>don't show {nick}</p>{/con:con2}
+
+</body>
+```
+
+## PHP Script ##
+```
+$file = new templater('test.tpl');
+$file->addvar('developername', 'conrado patricio ambrosio');
+$file->addvar('about', 'i\'m a php programmer, cool.');
+$file->addvar('nick', 'pat');
+
+$people = array(array('name' => 'kina', 'color' => 'purple'), 
+		array('name' => 'pat', 'color' => 'blue'),
+		array('name' => 'nobody', 'color' => 'pink')
+		);
+
+$file->addloop('people', $people);
+
+$file->addcon('con1', true);
+$file->addcon('con2', false);
+
+echo $file->render();
+```
+
+## OUTPUT ##
+```
+<body>
+
+<p>conrado patricio ambrosio - i'm a php programmer, cool.</p>
+
+<ul>
+	<li>kina loves purple</li>
+	<li>pat loves blue</li>
+	<li>nobody loves pink</li>
+</ul>
+
+<p>show pat</p>
+
+</body>
+```
